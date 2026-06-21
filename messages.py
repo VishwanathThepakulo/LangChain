@@ -14,9 +14,20 @@ model = init_chat_model(
     max_tokens = 200
 )
 
-system_msg = SystemMessage("You are a helpful assistan in maths and dont reply to any message apart from math question. ")
-human_msg = HumanMessage("what is the capital of india")
+messages = [
+    SystemMessage(
+        content="You are a helpful assistant."
+    )
+]
 
-messages = [system_msg, human_msg]
-response = model.invoke(messages) 
-print(response)
+while True:
+    user_input = input("Enter your query : ")
+    if user_input.lower() == 'exit':
+        break
+    messages.append(
+        HumanMessage(content=user_input)
+    )
+    response = model.invoke(messages) 
+    messages.append(response)
+    print(response.content)
+    print(f"=========================\n{messages}")
