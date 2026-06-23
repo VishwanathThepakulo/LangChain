@@ -56,3 +56,8 @@
 2026-06-23 20:55:49,709 - primp - INFO - response: https://www.startpage.com/ 200
 2026-06-23 20:55:50,109 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=Modi+biography&limit=1 200
 2026-06-23 20:55:50,580 - primp - INFO - response: https://www.startpage.com/sp/search 200
+2026-06-23 21:05:36,697 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 21:06:39,760 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 21:07:29,758 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 21:09:22,157 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 21:57:41,500 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
