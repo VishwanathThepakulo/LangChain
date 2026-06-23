@@ -20,3 +20,39 @@
 2026-06-22 23:46:05,013 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-06-22 23:46:05,647 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-06-22 23:46:06,267 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 14:55:29,874 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=top%20news%20in%20india%20today) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 14:55:30,454 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=top+news+in+india+today&limit=1 200
+2026-06-23 14:55:31,323 - primp - INFO - response: https://yandex.com/search/site/?text=top+news+in+india+today&web=1&searchid=8888478 200
+2026-06-23 14:56:07,608 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=top%20news%20in%20india%20today) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 14:56:08,159 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=top+news+in+india+today&limit=1 200
+2026-06-23 14:56:08,978 - primp - INFO - response: https://www.mojeek.com/search?q=top+news+in+india+today 200
+2026-06-23 14:56:45,139 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=top%20news%20in%20india%20today) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 14:56:45,688 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=top+news+in+india+today&limit=1 200
+2026-06-23 14:56:45,975 - primp - INFO - response: https://www.mojeek.com/search?q=top+news+in+india+today 200
+2026-06-23 15:08:11,458 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 15:13:14,839 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 15:14:26,349 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 15:17:20,696 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 20:33:57,443 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=top%20news%20in%20india%20today) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 20:33:58,319 - primp - INFO - response: https://yandex.com/search/site/?text=top+news+in+india+today&web=1&searchid=6755666 200
+2026-06-23 20:33:58,533 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=top+news+in+india+today&limit=1 200
+2026-06-23 20:33:58,919 - primp - INFO - response: https://search.yahoo.com/search;_ylt=G5LHrQY8Z7uwKehqv9vtJrAp;_ylu=poJETJ3ZzlxOYZIKc3AMygdpmgKo9VBEoHg9-0hHfkhfQEY?p=top+news+in+india+today&btf=y 200
+2026-06-23 20:34:52,686 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Temp%20in%20hyderabad%20india%20now) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 20:34:53,467 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=Temp+in+hyderabad+india+now&limit=1 200
+2026-06-23 20:34:53,646 - httpx - INFO - HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-06-23 20:35:51,652 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Time%20in%20hyderabad%20india%20now) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 20:35:52,382 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=Time+in+hyderabad+india+now&limit=1 200
+2026-06-23 20:35:52,569 - httpx - INFO - HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-06-23 20:46:10,592 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 20:46:52,117 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 20:47:32,425 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 20:54:15,608 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 20:54:16,503 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 20:54:52,656 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 20:54:53,554 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 20:55:17,181 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-23 20:55:48,402 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-23 20:55:49,042 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Modi%20biography) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-23 20:55:49,709 - primp - INFO - response: https://www.startpage.com/ 200
+2026-06-23 20:55:50,109 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=Modi+biography&limit=1 200
+2026-06-23 20:55:50,580 - primp - INFO - response: https://www.startpage.com/sp/search 200

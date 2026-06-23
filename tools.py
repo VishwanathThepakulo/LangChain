@@ -26,8 +26,7 @@ if not api_key:
 model = init_chat_model(
     model='llama-3.3-70b-versatile',
     model_provider='groq',
-    api_key=api_key,
-    max_tokens = 200
+    api_key=api_key
 )
 
 @tool(description="answer the queries related to python only.")
@@ -58,9 +57,22 @@ def java_queries(query):
     print(response.content)
     return response.content
 
+
+
+from langchain_community.tools import DuckDuckGoSearchRun
+
+@tool(description="Answer the queries related to web search")
+def websearch(query):
+    search_tool = DuckDuckGoSearchRun()
+    results = search_tool.invoke(query)
+    print(results)
+
+
+
+
 def tool_calling():
-    model_with_tools = model.bind_tools([python_queries, java_queries])
-    ai_message = model_with_tools.invoke("python vs java")
+    model_with_tools = model.bind_tools([python_queries, java_queries, websearch])
+    ai_message = model_with_tools.invoke("who is modi")
     print("Tool Calls Needed:", ai_message.tool_calls)     
     for tool_call in ai_message.tool_calls:
         if tool_call["name"] == "python_queries":
@@ -71,5 +83,16 @@ def tool_calling():
             result = java_queries.invoke(
                 tool_call["args"]
             )
+        elif tool_call["name"] == "websearch":
+            result = websearch.invoke(
+                tool_call["args"]
+            )
 
 tool_calling()
+
+# from langchain_community.tools import DuckDuckGoSearchRun
+
+# search_tool = DuckDuckGoSearchRun()
+
+# results = search_tool.invoke('Time in hyderabad india now')
+# print(results)
