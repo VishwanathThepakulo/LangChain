@@ -102,9 +102,9 @@ def get_weather(city_name):
     except Exception as e:
         print(f"An error occurred: {e}")     
 
-query = input("Enter your query")
 
-messages = 
+
+
 
 def tool_calling():
     model_with_tools = model.bind_tools([python_queries, java_queries, websearch, shell, get_weather])
@@ -132,5 +132,24 @@ def tool_calling():
                 tool_call
             )
 
-tool_calling()
 
+
+messages = [
+    SystemMessage(
+        content="You are a helpful assistant."
+    )
+]
+
+
+while True:
+    tool_calling()
+    user_input = input("Enter your query : ")
+    if user_input.lower() == 'exit':
+        break
+    messages.append(
+        HumanMessage(content=user_input)
+    )
+    response = model.invoke(messages) 
+    messages.append(response)
+    print(response.content)
+    print(f"=========================\n{messages}")
