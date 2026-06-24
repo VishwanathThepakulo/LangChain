@@ -58,8 +58,6 @@ def java_queries(query):
     print(response.content)
     return response.content
 
-
-
 from langchain_community.tools import DuckDuckGoSearchRun, ShellTool
 
 @tool(description="Answer the queries related to web search")
@@ -104,17 +102,18 @@ def get_weather(city_name):
     except Exception as e:
         print(f"An error occurred: {e}")     
 
+query = input("Enter your query")
 
-
+messages = 
 
 def tool_calling():
     model_with_tools = model.bind_tools([python_queries, java_queries, websearch, shell, get_weather])
-    ai_message = model_with_tools.invoke("climate in hyderabad")
+    ai_message = model_with_tools.invoke("about python")
     print("Tool Calls Needed:", ai_message.tool_calls)     
     for tool_call in ai_message.tool_calls:
         if tool_call["name"] == "python_queries":
             result = python_queries.invoke(
-                tool_call["args"]
+                tool_call
             )
         elif tool_call["name"] == "java_queries":
             result = java_queries.invoke(
@@ -126,11 +125,11 @@ def tool_calling():
             )
         elif tool_call["name"] == "shell":
             result = shell.invoke(
-                tool_call["args"]
+                tool_call
             )
         elif tool_call["name"] == "get_weather":
             result = get_weather.invoke(
-                tool_call["args"]
+                tool_call
             )
 
 tool_calling()
