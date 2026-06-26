@@ -147,3 +147,17 @@
 2026-06-25 22:25:03,965 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-06-25 22:25:19,022 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-06-25 22:25:40,255 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-06-25 22:27:25,636 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:27:26,082 - ddgs.ddgs - INFO - Error in engine wikipedia: DDGSException('ConnectError: ConnectError(\'error sending request for url (https://wt.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=trending%20news%20today%20in%20india%20top%205) > client error (Connect) > dns error > DNS error: no records found for Query { name: Name("wt.wikipedia.org."), query_type: A, query_class: IN }\')')
+2026-06-25 22:27:26,882 - primp - INFO - response: https://www.startpage.com/ 200
+2026-06-25 22:27:27,093 - primp - INFO - response: https://grokipedia.com/api/typeahead?query=trending+news+today+in+india+top+5&limit=1 200
+2026-06-25 22:27:28,062 - primp - INFO - response: https://www.startpage.com/sp/search 200
+2026-06-25 22:27:29,581 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:27:55,444 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:28:24,161 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:28:27,162 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:32:45,081 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:32:59,805 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:34:28,904 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:34:31,227 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-06-25 22:46:52,476 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

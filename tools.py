@@ -203,6 +203,7 @@ while True:
         messages.append(final_response)
         print(final_response.content)
         print("------------------------------------------------------------------------------------")
+        print(messages)
     else:
         # If no tools were needed, the AI message already contains the answer
         print("================================== Response ==================================")
