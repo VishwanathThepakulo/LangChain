@@ -23,7 +23,7 @@ model = init_chat_model(
 
 
 @tool
-def currency(base_currency: str, target_currency:str)->float:
+def get_currency_tool(base_currency: str, target_currency:str)->float:
     """
     This function fetch currency factor between a given currency and a target currency
     """
@@ -32,6 +32,7 @@ def currency(base_currency: str, target_currency:str)->float:
         raise Exception("Exchange_Rate_API not found")
     url = f"https://v6.exchangerate-api.com/v6/{rate_api}/pair/{base_currency}/{target_currency}"
     response = requests.get(url)
+    # print(response.json())
     return response.json()
 
 # result =  get_currency('USD', 'INR')
@@ -40,7 +41,7 @@ def currency(base_currency: str, target_currency:str)->float:
 
 
 @tool
-def converter(base_currency_value, conversion_rate):
+def converter_tool(base_currency_value, conversion_rate):
     """
     given a currency conversation rate this function calculates the target currency value from a given base currency value
     """
@@ -50,18 +51,47 @@ def converter(base_currency_value, conversion_rate):
 
 
 tools_map = {
-    'currency':currency,
-    'converter':converter
+    'get_currency_tool':get_currency_tool,
+    'converter_tool':converter_tool
 }
 
-messages = [SystemMessage(content="You are a helpfull assistant")]
+messages = [SystemMessage(content="You are a helpfull assistant"), HumanMessage(content="usd to inr")]
 
 model_with_tool = model.bind_tools(list(tools_map.values()))
+# print("===============================================================")
+# # print(f'\n\n{model_with_tool}\n\n')
+# print("===============================================================")
+
+
 
 print("Assistant is ready! Type 'exit' to quit.")
 
-while True:
-    user_query = input('\nQuery : ')
-    if user_query.lower()=='exit'or 'quit':
-        break
+response = model_with_tool.invoke(messages)
+ai_response = response.tool_calls[0]
+# print(f"\n\n\n===> {ai_response['name']}")
+# print(f"\n\n\n===> {ai_response['args']}")
+# print(f"\n\n\n===> {ai_response['id']}")
+# print(f"\n\n\n===> {ai_response['type']}")
+
+
+if response.tool_calls:
+    for tool_call in response.tool_calls:
+        tool_name = tool_call["name"]
+        tool_args = tool_call["args"]
+        tool_id = tool_call["id"]
+
+
+        print(f'tool call name ====> {tool_call["name"]}')
+        print(f'\n\ntool keys ===> {tools_map.keys()}')
+
+        tools = tools_map[tool_name]
+        tool_result = tools.invoke(tool_args)
+        print("\n\n")
+        print(tool_result.get('conversion_rate'))
+
+
+# while True:
+#     user_query = input('\nQuery : ')
+#     if user_query.lower()=='exit'or 'quit':
+#         break
 
