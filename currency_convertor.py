@@ -41,7 +41,7 @@ def get_currency_tool(base_currency: str, target_currency:str)->float:
 
 
 @tool
-def converter_tool(base_currency_value, conversion_rate):
+def converter_tool(base_currency_value: float, conversion_rate: float)-> float:
     """
     given a currency conversation rate this function calculates the target currency value from a given base currency value
     """
@@ -55,7 +55,7 @@ tools_map = {
     'converter_tool':converter_tool
 }
 
-messages = [SystemMessage(content="You are a helpfull assistant"), HumanMessage(content="usd to inr")]
+messages = [SystemMessage(content="You are a helpfull assistant")]
 
 model_with_tool = model.bind_tools(list(tools_map.values()))
 # print("===============================================================")
@@ -66,32 +66,85 @@ model_with_tool = model.bind_tools(list(tools_map.values()))
 
 print("Assistant is ready! Type 'exit' to quit.")
 
-response = model_with_tool.invoke(messages)
-ai_response = response.tool_calls[0]
+
+
 # print(f"\n\n\n===> {ai_response['name']}")
 # print(f"\n\n\n===> {ai_response['args']}")
 # print(f"\n\n\n===> {ai_response['id']}")
 # print(f"\n\n\n===> {ai_response['type']}")
 
 
-if response.tool_calls:
-    for tool_call in response.tool_calls:
-        tool_name = tool_call["name"]
-        tool_args = tool_call["args"]
-        tool_id = tool_call["id"]
 
-
-        print(f'tool call name ====> {tool_call["name"]}')
-        print(f'\n\ntool keys ===> {tools_map.keys()}')
-
-        tools = tools_map[tool_name]
-        tool_result = tools.invoke(tool_args)
-        print("\n\n")
-        print(tool_result.get('conversion_rate'))
 
 
 # while True:
 #     user_query = input('\nQuery : ')
-#     if user_query.lower()=='exit'or 'quit':
+#     if user_query.lower() in ["exit", "quit"]:
 #         break
+#     messages.append(HumanMessage(content=user_query))
 
+#     ai_response = model_with_tool.invoke(messages)
+#     messages.append(ai_response)
+#     # ai_response = ai_tool_message.tool_calls[0]
+
+#     if ai_response.tool_calls:
+#         for tool_call in ai_response.tool_calls:
+#             tool_name = tool_call["name"]
+#             tool_args = tool_call["args"]
+#             tool_id = tool_call["id"]
+#             # print(f'tool call name ====> {tool_call["name"]}')
+#             # print(f'\n\ntool keys ===> {tools_map.keys()}')
+#             print(f'Executing tool: {tool_name} with args: {tool_args}')
+#             tool_func = tools_map[tool_name]
+#             tool_result = tool_func.invoke(tool_args)
+#             print("\n\n")
+#             # print(tool_result.get('conversion_rate'))
+#             messages.append(
+#                             ToolMessage(
+#                                 content=str(tool_result),
+#                                 tool_call_id=tool_id
+#                             )
+#                         )
+#         final_response = model_with_tool.invoke(messages)
+#         messages.append(final_response)
+#         print(final_response.content)
+#     else:
+#         print(f"\nAssistant: {ai_response.content}")
+
+while True:
+    user_query = input('\nQuery : ')
+    if user_query.lower() in ["exit", "quit"]:
+        break
+        
+    messages.append(HumanMessage(content=user_query))
+
+    # Keep looping until the model gives a final text response without calling tools
+    while True:
+        ai_response = model_with_tool.invoke(messages)
+        messages.append(ai_response)
+
+        # If the model wants to call tools, execute them and stay in the loop
+        if ai_response.tool_calls:
+            for tool_call in ai_response.tool_calls:
+                tool_name = tool_call["name"]
+                tool_args = tool_call["args"]
+                tool_id = tool_call["id"]
+                
+                print(f'Executing tool: {tool_name} with args: {tool_args}')
+
+                tool_func = tools_map[tool_name]
+                tool_result = tool_func.invoke(tool_args)
+                
+                messages.append(
+                    ToolMessage(
+                        content=str(tool_result),
+                        tool_call_id=tool_id
+                    )
+                )
+            # Continue the inner loop so the model can evaluate the tool output
+            continue 
+        
+        # If no tools were called, it's a final response. Print it and break the inner loop.
+        else:
+            print(f"\nAssistant: {ai_response.content}")
+            break
