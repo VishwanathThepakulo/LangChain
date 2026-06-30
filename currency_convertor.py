@@ -58,58 +58,10 @@ tools_map = {
 messages = [SystemMessage(content="You are a helpfull assistant")]
 
 model_with_tool = model.bind_tools(list(tools_map.values()))
-# print("===============================================================")
-# # print(f'\n\n{model_with_tool}\n\n')
-# print("===============================================================")
-
-
 
 print("Assistant is ready! Type 'exit' to quit.")
 
 
-
-# print(f"\n\n\n===> {ai_response['name']}")
-# print(f"\n\n\n===> {ai_response['args']}")
-# print(f"\n\n\n===> {ai_response['id']}")
-# print(f"\n\n\n===> {ai_response['type']}")
-
-
-
-
-
-# while True:
-#     user_query = input('\nQuery : ')
-#     if user_query.lower() in ["exit", "quit"]:
-#         break
-#     messages.append(HumanMessage(content=user_query))
-
-#     ai_response = model_with_tool.invoke(messages)
-#     messages.append(ai_response)
-#     # ai_response = ai_tool_message.tool_calls[0]
-
-#     if ai_response.tool_calls:
-#         for tool_call in ai_response.tool_calls:
-#             tool_name = tool_call["name"]
-#             tool_args = tool_call["args"]
-#             tool_id = tool_call["id"]
-#             # print(f'tool call name ====> {tool_call["name"]}')
-#             # print(f'\n\ntool keys ===> {tools_map.keys()}')
-#             print(f'Executing tool: {tool_name} with args: {tool_args}')
-#             tool_func = tools_map[tool_name]
-#             tool_result = tool_func.invoke(tool_args)
-#             print("\n\n")
-#             # print(tool_result.get('conversion_rate'))
-#             messages.append(
-#                             ToolMessage(
-#                                 content=str(tool_result),
-#                                 tool_call_id=tool_id
-#                             )
-#                         )
-#         final_response = model_with_tool.invoke(messages)
-#         messages.append(final_response)
-#         print(final_response.content)
-#     else:
-#         print(f"\nAssistant: {ai_response.content}")
 
 while True:
     user_query = input('\nQuery : ')
